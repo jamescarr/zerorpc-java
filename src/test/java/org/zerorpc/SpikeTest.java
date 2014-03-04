@@ -2,7 +2,6 @@ package org.zerorpc;
 
 import org.junit.Test;
 import org.msgpack.MessagePack;
-import org.zerorpc.Person;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -33,7 +32,7 @@ public class SpikeTest {
 
     @Test
     public void shouldDoThisFromHighLevel() throws IOException {
-        Service service = new Service<PersonService>(new PersonService());
+        ZeroRPCService service = new ZeroRPCService<PersonService>(new PersonService());
         service.bind("tcp://0.0.0.0:4242");
         new Thread(service).start();
 
@@ -43,7 +42,7 @@ public class SpikeTest {
         Integer id = client.invoke("add", 0, "James Carr", "james@zapier.com");
 
         System.out.printf("Resulting id is %s", id);
-        Person p = client.invoke("get", new Person(), id.toString());
+        Person p = client.invoke("get", new Person(), id);
         System.out.println(p.getEmail());
     }
 

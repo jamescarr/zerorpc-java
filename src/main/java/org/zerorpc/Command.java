@@ -1,6 +1,7 @@
 package org.zerorpc;
 
 import org.msgpack.annotation.Message;
+import org.msgpack.type.Value;
 
 /**
  * Created by jamescarr on 3/4/14.
@@ -8,10 +9,10 @@ import org.msgpack.annotation.Message;
 @Message
 public class Command {
     private String methodName;
-    private String[] args;
+    private Value[] args;
 
     public Command() {}
-    public Command(String methodName, String... args) {
+    public Command(String methodName, Value... args) {
         this.methodName = methodName;
         this.args = args;
     }
@@ -24,11 +25,11 @@ public class Command {
         this.methodName = methodName;
     }
 
-    public String[] getArgs() {
+    public Value[] getArgs() {
         return args;
     }
 
-    public void setArgs(String[] args) {
+    public void setArgs(Value[] args) {
         this.args = args;
     }
 

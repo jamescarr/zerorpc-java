@@ -24,9 +24,9 @@ public class PersonService {
         return p.getId();
     }
 
-    public Person get(String id) {
+    public Person get(final Integer id) {
         for (Person p : this.people) {
-            if (p.getId() == Integer.parseInt(id)) {
+            if (p.getId() == id) {
                 return p;
             }
         }
