@@ -1,0 +1,15 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.7
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.11'
+
+    compile 'org.zeromq:jeromq:0.3.2'
+    compile 'org.msgpack:msgpack:0.6.10'
+}
